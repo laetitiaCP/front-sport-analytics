@@ -1,0 +1,25 @@
+.navBar {
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 117px;
+  min-height: 92vh;
+  height: auto;
+  &__logos {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+    & img {
+      width: 64px;
+      height: 64px;
+    }
+  }
+  &__text {
+    color: white;
+    rotate: -90deg;
+    white-space: nowrap;
+  }
+}

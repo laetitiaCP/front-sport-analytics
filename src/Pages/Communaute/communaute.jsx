@@ -1,6 +1,17 @@
+import Header from "../../Components/Header/header";
+import NavBarAside from "../../Components/NavBarAside/navBarAside";
+
 function Communaute() {
     return (
-        <div>En construction</div>
+        <div>
+            <Header />
+            <main className="main">
+                <NavBarAside />
+                <section>
+                    En construction
+                </section>
+            </main>
+        </div>
     );
 }
 
