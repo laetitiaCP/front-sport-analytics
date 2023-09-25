@@ -1,0 +1,27 @@
+.header {
+  height: 91px;
+  &__logo {
+    margin-left: 20px;
+  }
+  display: flex;
+  background-color: black;
+  &__links{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    font-size: 24px;
+    font-weight: 500;
+    list-style: none;
+    width: 100%;
+    & :visited {
+      color: white;
+      text-underline: none;
+    }
+  }
+  &__link {
+    align-self: center;
+    & a {
+      text-decoration: none;
+    }
+  }
+}
