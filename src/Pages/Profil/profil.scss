@@ -1,3 +1,20 @@
+@import "src/Style/variables";
+
 .main {
   display: flex;
+}
+
+.profil {
+  margin-left: 100px;
+  &__title {
+    font-size: 48px;
+  }
+  &__name {
+    font-size: 48px;
+    color: $primaryColor;
+    margin-left: 15px;
+  }
+  &__text {
+    font-size: 18px;
+  }
 }
