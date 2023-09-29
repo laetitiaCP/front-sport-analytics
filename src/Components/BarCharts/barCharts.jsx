@@ -7,6 +7,7 @@ import {
     CartesianGrid,
     Tooltip,
     Legend,
+    Label
 } from "recharts";
 
 /**
@@ -16,9 +17,19 @@ import {
  * @constructor
  */
 function BarCharts({data}) {
-    console.log(data)
+
+    /**
+     * So that the indexes start at 1
+     * @param parData
+     * @returns {*}
+     */
+    function tickFormatterXAxis(parData) {
+        return parData + 1;
+    }
+
     return (
         <div>
+
             <BarChart
                 width={1000}
                 height={300}
@@ -30,13 +41,19 @@ function BarCharts({data}) {
                     bottom: 5
                 }}
             >
-
+                <svg className="barChart__title">
+                    <text x="10" y="30">Activité quotidienne</text>
+                </svg>
                 <CartesianGrid
                     strokeDasharray="2 2" //largeur pointillés lignes grid
                     vertical={false}
                     horizontal={true}
                 />
-                <XAxis dataKey="day" padding={{ left: 0, right: 0}} />
+                <XAxis
+                    padding={{ left: 8, right: 8}}
+                    tickFormatter={tickFormatterXAxis}
+                    scale={"point"}
+                />
                 <YAxis
                     yAxisId="calories"
                     dataKey="calories"
@@ -54,15 +71,36 @@ function BarCharts({data}) {
                     tickCount={3} // nombre de valeurs sur les ordonnées
                     domain={["dataMin-2","dataMax+1"]}
                     orientation="right"
+                    tickMargin={30}
                 />
+                <Tooltip content={<CustomTooltip payload={data}/>} />
 
-                <Tooltip />
-                <Legend />
-                <Bar yAxisId="kilogram" dataKey="kilogram" fill="black" barSize={5} radius={[10, 10, 0, 0]}/>
-                <Bar yAxisId="calories" dataKey="calories" fill="#E60000" barSize={5} radius={[10, 10, 0, 0]}/>
+                <Legend verticalAlign="top" align="right" iconType="circle" />
+                <Bar yAxisId="kilogram" dataKey="kilogram" fill="black" barSize={5} radius={[10, 10, 0, 0]} />
+                <Bar yAxisId="calories" dataKey="calories" fill="#E60000" barSize={5} radius={[10, 10, 0, 0]} />
             </BarChart>
         </div>
     )
 }
 
 export default BarCharts;
+
+/**
+ * return a custom tooltip
+ * @param payload
+ * @returns {JSX.Element}
+ * @constructor
+ */
+const CustomTooltip = ({payload}) => {
+    if (payload[0] !== undefined) {
+        const weight = payload[0].payload.kilogram + "kg";
+        const calories = payload[0].payload.calories + "Kcal";
+
+        return (
+            <div className="tooltip">
+                <p>{weight}</p>
+                <p>{calories}</p>
+            </div>
+        )
+    }
+}

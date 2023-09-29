@@ -1,0 +1,22 @@
+.tooltip-lineChart {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 39px;
+  height: 25px;
+  font-size: 8px;
+  border: solid white;
+  background-color: white;
+  color: black;
+}
+
+.lineChart {
+  &__title {
+    & text {
+      font-size: 15px;
+      font-weight: 500;
+      line-height: 24px;
+      white-space: pre-line;
+    }
+  }
+}

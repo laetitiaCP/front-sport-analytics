@@ -1,0 +1,36 @@
+@import "src/Style/variables";
+
+.tooltip {
+  display: flex;
+  flex-direction: column;
+  width: 39px;
+  height: 63px;
+  font-size: 7px;
+  font-weight: 500;
+  line-height: 24px;
+  color: white;
+  background-color: $primaryColor;
+  align-items: center;
+
+  & p {
+    margin: 5px 0 0 0;
+  }
+}
+
+.legend {
+  & span {
+    display: flex;
+    flex-direction: column;
+  }
+
+}
+
+.barChart {
+  &__title {
+    & text {
+      font-size: 15px;
+      font-weight: 500;
+      line-height: 24px;
+    }
+  }
+}

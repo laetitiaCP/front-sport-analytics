@@ -7,7 +7,7 @@ function Header() {
             <img className="header__logo" src={logo} alt="logo sportSee"/>
             <ul className="header__links">
                 <li className="header__link"><Link to="/">Accueil</Link></li>
-                <li className="header__link"><Link to="/profil">Profil</Link></li>
+                <li className="header__link"><Link to="/">Profil</Link></li>
                 <li className="header__link"><Link to="/reglages">Réglages</Link></li>
                 <li className="header__link"><Link to="/communaute">Communauté</Link></li>
             </ul>

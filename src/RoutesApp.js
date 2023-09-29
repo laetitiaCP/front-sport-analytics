@@ -9,7 +9,7 @@ function RoutesApp() {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
-        <Route path="/profil/:id" element={<Profil />} />
+        <Route path="/:id/profil" element={<Profil />} />
         <Route path="/reglages" element={<Reglages />} />
         <Route path="/communaute" element={<Communaute />} />
     </Routes>
