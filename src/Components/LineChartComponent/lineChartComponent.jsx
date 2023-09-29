@@ -27,7 +27,7 @@ function LineChartComponent(parData) {
     return (
         <div>
             <LineChart
-                width={258}
+                width={300}
                 height={263}
                 data={parData.data}
                 onMouseMove={onMouseMove}
@@ -52,8 +52,8 @@ function LineChartComponent(parData) {
                     <text x="10" y="30" fill="white" opacity="50%" >Durée moyenne des</text>
                     <text x="10" y="50" fill="white" opacity="50%" >sessions</text>
                 </svg>
-                <XAxis dataKey="day"/>
-                <YAxis domain={["dataMin-15", "dataMax+15"]} hide={true} />
+                <XAxis dataKey="day" tick={<CustomTick />} tickSize={0} padding={{left:10, right:10}} />
+                <YAxis domain={["dataMin-25", "dataMax+15"]} hide={true}/>
                 <Tooltip content={<CustomTooltip payload={parData} />}/>
                 <Line
                     type="natural"
@@ -79,4 +79,14 @@ const CustomTooltip = ({payload}) => {
             </div>
         )
     }
+}
+
+const CustomTick = ({x, y, payload}) => {
+    return (
+        <g className="custom-tick" transform={`translate(${x},${y})`}>
+            <text x={0} y={-30} dy={16} fill="#FFFFFF" opacity="0.5" fontSize={12} >
+                {payload.value}
+            </text>
+        </g>
+    )
 }
