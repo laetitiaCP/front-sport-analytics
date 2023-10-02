@@ -1,6 +1,6 @@
 import {
     CartesianGrid,
-    LineChart, Tooltip, XAxis, YAxis, Line, ReferenceLine
+    LineChart, Tooltip, XAxis, YAxis, Line
 } from "recharts";
 import "./lineChartComponent.scss";
 import {useState} from "react";

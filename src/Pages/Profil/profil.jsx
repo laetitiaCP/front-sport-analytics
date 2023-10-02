@@ -4,10 +4,12 @@ import "./profil.scss";
 import dataUsers from "../../Data/dataUsers.json";
 import dataActivity from "../../Data/dataActivity.json";
 import dataAverageSessions from "../../Data/dataAverageSessions.json";
+import dataPerformance from "../../Data/dataPerformance.json";
 
 import {useParams} from "react-router-dom";
 import BarCharts from "../../Components/BarCharts/barCharts";
 import LineChartComponent from "../../Components/LineChartComponent/lineChartComponent";
+import RadarChartComponent from "../../Components/RadarChart/radarChartComponent";
 
 
 function Profil() {
@@ -16,6 +18,7 @@ function Profil() {
     const firstName = user.userInfos.firstName;
     const activity = dataActivity.find(locActivity => locActivity.userId === user.id);
     const averageSession = dataAverageSessions.find(locAverage => locAverage.userId === user.id);
+    const performance = dataPerformance.find(locPerformance => locPerformance.userId === user.id);
 
     console.log(averageSession)
     return (
@@ -29,8 +32,13 @@ function Profil() {
                         <span className="profil__name">{firstName}</span>
                     </h1>
                     <h2 className="profil__text">Félicitations ! Vous avez explosé vos objectifs hier 👏</h2>
-                    <BarCharts data={activity.sessions} />
-                    <LineChartComponent data={averageSession.sessions} />
+                    <article>
+                        <BarCharts data={activity.sessions} />
+                    </article>
+                    <article className="lineRadarChart">
+                        <LineChartComponent data={averageSession.sessions} />
+                        <RadarChartComponent data={performance} />
+                    </article>
                 </section>
             </main>
         </div>
