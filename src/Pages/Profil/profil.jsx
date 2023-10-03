@@ -10,6 +10,8 @@ import {useParams} from "react-router-dom";
 import BarCharts from "../../Components/BarCharts/barCharts";
 import LineChartComponent from "../../Components/LineChartComponent/lineChartComponent";
 import RadarChartComponent from "../../Components/RadarChart/radarChartComponent";
+import RadialBarChartComponent from "../../Components/RadialBarChartComponent/radialBarChartComponent";
+import Card from "../../Components/Card/card";
 
 
 function Profil() {
@@ -20,7 +22,8 @@ function Profil() {
     const averageSession = dataAverageSessions.find(locAverage => locAverage.userId === user.id);
     const performance = dataPerformance.find(locPerformance => locPerformance.userId === user.id);
 
-    console.log(averageSession)
+    console.log(user)
+
     return (
         <div>
             <Header />
@@ -38,8 +41,12 @@ function Profil() {
                     <article className="lineRadarChart">
                         <LineChartComponent data={averageSession.sessions} />
                         <RadarChartComponent data={performance} />
+                        <RadialBarChartComponent data={user} />
                     </article>
                 </section>
+                <aside>
+                    <Card data={user.keyData.calorieCount}/>
+                </aside>
             </main>
         </div>
     );
