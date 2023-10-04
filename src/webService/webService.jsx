@@ -1,8 +1,11 @@
 import useFetch from "../Hooks/useFetch";
 
-export function WebService(parUserId, parTypeData) {
+export function getDataUser(parUserId, parTypeData) {
 
     const {dataUser, loading, error} = useFetch(parUserId);
+
+
+
 
 }
 

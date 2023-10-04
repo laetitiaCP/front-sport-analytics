@@ -26,6 +26,10 @@ function BarCharts({data}) {
         return parData + 1;
     }
 
+    const CustomName = ({name}) => {
+        return <span className="custom-name">{name}</span>
+    }
+
     return (
         <div>
 
@@ -41,7 +45,7 @@ function BarCharts({data}) {
                 }}
             >
                 <svg className="barChart__title">
-                    <text x="10" y="30">Activité quotidienne</text>
+                    <text x="10" y="10">Activité quotidienne</text>
                 </svg>
                 <CartesianGrid
                     strokeDasharray="2 2" //largeur pointillés lignes grid
@@ -74,9 +78,9 @@ function BarCharts({data}) {
                 />
                 <Tooltip content={<CustomTooltip payload={data}/>} />
 
-                <Legend verticalAlign="top" align="right" iconType="circle" />
-                <Bar yAxisId="kilogram" dataKey="kilogram" fill="black" barSize={5} radius={[10, 10, 0, 0]} />
-                <Bar yAxisId="calories" dataKey="calories" fill="#E60000" barSize={5} radius={[10, 10, 0, 0]} />
+                <Legend verticalAlign="top" align="right" iconType="circle" height={80} />
+                <Bar yAxisId="kilogram" dataKey="kilogram" fill="black" barSize={5} radius={[10, 10, 0, 0]} name={<CustomName name="Poids (kg)" />} />
+                <Bar yAxisId="calories" dataKey="calories" fill="#E60000" barSize={5} radius={[10, 10, 0, 0]} name={<CustomName name="Calories (kCal)" />}/>
             </BarChart>
         </div>
     )

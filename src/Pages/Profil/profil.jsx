@@ -35,7 +35,7 @@ function Profil() {
                         <span className="profil__name">{firstName}</span>
                     </h1>
                     <h2 className="profil__text">Félicitations ! Vous avez explosé vos objectifs hier 👏</h2>
-                    <article>
+                    <article className="barchart">
                         <BarCharts data={activity.sessions} />
                     </article>
                     <article className="lineRadarChart">

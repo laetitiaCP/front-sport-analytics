@@ -1,7 +1,11 @@
 import WebService from "./webService";
 
-function StandardizedData() {
+export default class StandardizedData {
+
+    getDataActivity(parData) {
+
+
+    }
 
 }
 
-export default StandardizedData;
