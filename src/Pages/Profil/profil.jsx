@@ -2,7 +2,6 @@ import Header from "../../Components/Header/header";
 import NavBarAside from "../../Components/NavBarAside/navBarAside";
 import "./profil.scss";
 import dataUsers from "../../Data/dataUsers.json";
-import dataActivity from "../../Data/dataActivity.json";
 import dataAverageSessions from "../../Data/dataAverageSessions.json";
 import dataPerformance from "../../Data/dataPerformance.json";
 
@@ -12,18 +11,20 @@ import LineChartComponent from "../../Components/LineChartComponent/lineChartCom
 import RadarChartComponent from "../../Components/RadarChart/radarChartComponent";
 import RadialBarChartComponent from "../../Components/RadialBarChartComponent/radialBarChartComponent";
 import Card from "../../Components/Card/card";
-
+import {GetDataActivity, GetDataAverageSessions} from "../../webService/webService";
 
 function Profil() {
     const id = useParams("id");
     const user = dataUsers.find(locUser => locUser.id === parseInt(id.id));
     const firstName = user.userInfos.firstName;
-    const activity = dataActivity.find(locActivity => locActivity.userId === user.id);
     const averageSession = dataAverageSessions.find(locAverage => locAverage.userId === user.id);
     const performance = dataPerformance.find(locPerformance => locPerformance.userId === user.id);
 
-    console.log(user)
+    const dataActivityApi = GetDataActivity(id.id);
+    //const dataAverageApi = GetDataAverageSessions(id.id);
 
+
+    console.log(dataActivityApi)
     return (
         <div>
             <Header />
@@ -36,7 +37,7 @@ function Profil() {
                     </h1>
                     <h2 className="profil__text">Félicitations ! Vous avez explosé vos objectifs hier 👏</h2>
                     <article className="barchart">
-                        <BarCharts data={activity.sessions} />
+                        <BarCharts data={dataActivityApi} />
                     </article>
                     <article className="lineRadarChart">
                         <LineChartComponent data={averageSession.sessions} />

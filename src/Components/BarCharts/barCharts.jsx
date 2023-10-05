@@ -16,23 +16,12 @@ import {
  * @constructor
  */
 function BarCharts({data}) {
-
-    /**
-     * So that the indexes start at 1
-     * @param parData
-     * @returns {*}
-     */
-    function tickFormatterXAxis(parData) {
-        return parData + 1;
-    }
-
     const CustomName = ({name}) => {
         return <span className="custom-name">{name}</span>
     }
 
     return (
         <div>
-
             <BarChart
                 width={1000}
                 height={300}
@@ -53,8 +42,8 @@ function BarCharts({data}) {
                     horizontal={true}
                 />
                 <XAxis
+                    dataKey="day"
                     padding={{ left: 8, right: 8}}
-                    tickFormatter={tickFormatterXAxis}
                     scale={"point"}
                 />
                 <YAxis
