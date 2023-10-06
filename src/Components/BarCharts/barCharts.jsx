@@ -28,13 +28,13 @@ function BarCharts({data}) {
                 data={data}
                 margin={{
                     top: 5,
-                    right: 0,
-                    left: 0,
+                    right: 10,
+                    left: 30,
                     bottom: 5
                 }}
             >
                 <svg className="barChart__title">
-                    <text x="10" y="10">Activité quotidienne</text>
+                    <text x="30" y="40">Activité quotidienne</text>
                 </svg>
                 <CartesianGrid
                     strokeDasharray="2 2" //largeur pointillés lignes grid
@@ -67,7 +67,7 @@ function BarCharts({data}) {
                 />
                 <Tooltip content={<CustomTooltip payload={data}/>} />
 
-                <Legend verticalAlign="top" align="right" iconType="circle" height={80} />
+                <Legend verticalAlign="top"  align="right" iconType="circle" height={80} wrapperStyle={{top:20}}/>
                 <Bar yAxisId="kilogram" dataKey="kilogram" fill="black" barSize={5} radius={[10, 10, 0, 0]} name={<CustomName name="Poids (kg)" />} />
                 <Bar yAxisId="calories" dataKey="calories" fill="#E60000" barSize={5} radius={[10, 10, 0, 0]} name={<CustomName name="Calories (kCal)" />}/>
             </BarChart>

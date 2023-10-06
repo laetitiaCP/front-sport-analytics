@@ -1,54 +1,28 @@
-import {RadarChart, PolarGrid, PolarAngleAxis, Radar} from "recharts";
+import {RadarChart, PolarGrid, PolarAngleAxis, Radar, ResponsiveContainer} from "recharts";
 import "./radarCharComponent.scss";
+
+/**
+ * component qui renvoie un RadarChart
+ * @param parData
+ * @returns {JSX.Element}
+ * @constructor
+ */
 function RadarChartComponent(parData) {
-console.log(parData)
-    const data = [
-        {
-            kind: 'cardio',
-            12: 80,
-            18: 200,
-        },
-        {
-            kind: 'energy',
-            12: 120,
-            18: 240,
-        },
-        {
-            kind: 'endurance',
-            12: 140,
-            18: 80,
-        },
-        {
-            kind: 'strength',
-            12: 50,
-            18: 80,
-        },
-        {
-            kind: 'speed',
-            12: 200,
-            18: 220,
-        },
-        {
-            kind: 'intensity',
-            12: 90,
-            18: 110,
-        },
-    ];
-            return (
-                <div className="radarChart">
-                    <RadarChart outerRadius={100}
-                                width={300}
-                                height={300}
-                                data={data}
-                    >
-                        <PolarGrid gridType="polygon" radialLines={false} />
-                        <PolarAngleAxis dataKey="kind" />
-                        <Radar  dataKey="12" stroke="#8884d8" fill="#FF0101" fillOpacity={0.7} />
-                    </RadarChart>
-                </div>
-            );
-
-
+    return (
+        <div className="radarChart">
+            <ResponsiveContainer>
+                <RadarChart outerRadius={60}
+                            width={240}
+                            height={250}
+                            data={parData.data}
+                >
+                    <PolarGrid gridType="polygon" radialLines={false} />
+                    <PolarAngleAxis dataKey="kind" dy={7} tickSize={15} tick={{fill:"white", fontSize:15}}/>
+                    <Radar  dataKey="value" stroke="#8884d8" fill="#FF0101" fillOpacity={0.7} />
+                </RadarChart>
+            </ResponsiveContainer>
+        </div>
+    );
 }
 
 export default RadarChartComponent;

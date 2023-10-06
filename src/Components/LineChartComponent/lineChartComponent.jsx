@@ -25,7 +25,7 @@ function LineChartComponent(parData) {
     };
 
     return (
-        <div>
+        <div className="lineChart">
             <LineChart
                 width={300}
                 height={263}
@@ -49,10 +49,10 @@ function LineChartComponent(parData) {
                     fill="url(#colorBackground)"
                 />
                 <svg className="lineChart__title">
-                    <text x="10" y="30" fill="white" opacity="50%" >Durée moyenne des</text>
-                    <text x="10" y="50" fill="white" opacity="50%" >sessions</text>
+                    <text x="10" y="30" fill="white" opacity="70%" >Durée moyenne des</text>
+                    <text x="10" y="50" fill="white" opacity="70%" >sessions</text>
                 </svg>
-                <XAxis dataKey="day" tick={<CustomTick />} tickSize={0} padding={{left:10, right:10}} />
+                <XAxis dataKey="day" tick={<CustomTick />} tickSize={0} axisLine={false} padding={{left:10, right:10}} />
                 <YAxis domain={["dataMin-25", "dataMax+15"]} hide={true}/>
                 <Tooltip content={<CustomTooltip payload={parData} />}/>
                 <Line

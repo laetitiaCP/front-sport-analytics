@@ -21,8 +21,11 @@
 
 .barchart {
   margin-top: 70px;
+  margin-bottom: 30px;
+  background: #eeeeee;
 }
 
 .lineRadarChart {
   display: flex;
+  justify-content: space-between;
 }

@@ -1,13 +1,12 @@
 import {useEffect, useState} from "react";
 import axios from "axios";
 
-function useFetch(url, requestInit = {}) {
+function useFetch(url) {
     const [data, setData] = useState({});
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState(false);
 
     useEffect( () => {
-        const controller = new AbortController();
         if (!url) {
             return;
         }
@@ -25,13 +24,13 @@ function useFetch(url, requestInit = {}) {
                 .finally(() => {
                     if (mounted) setIsLoading(false);
                 });
+            return true;
         }
         fetchData();
         return () => {
-            controller?.abort();
             mounted = false;
         }
-    }, [url, requestInit]);
+    }, [url]);
     console.log(data)
     return { data, isLoading, error };
 }
