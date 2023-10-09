@@ -51,9 +51,9 @@ export function formatDataPerformance(parData) {
 }
 
 export function formatDataUser(parData) {
-    console.log(parData.data);
     let locReturnedData = [];
     if (parData.data) {
+        let calorie = new Intl.NumberFormat("en-IN").format(parData.data.keyData.calorieCount);
         locReturnedData= [
             {
             "id": parData.data.id,
@@ -65,7 +65,7 @@ export function formatDataUser(parData) {
             "score": parData.data.score * 100 || parData.data.todayScore * 100,
 
             "keyData": {
-                "calorieCount": parData.data.keyData.calorieCount,
+                "calorieCount": calorie,
                 "proteinCount": parData.data.keyData.proteinCount,
                 "carbohydrateCount": parData.data.keyData.carbohydrateCount,
                 "lipidCount": parData.data.keyData.lipidCount

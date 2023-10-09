@@ -5,7 +5,11 @@
 }
 
 .profil {
-  margin-left: 100px;
+  margin-left: auto;
+  margin-right: auto;
+  @include desktop-breakpoint {
+    margin-left: 10px;
+  }
   &__title {
     font-size: 48px;
   }
@@ -19,13 +23,33 @@
   }
 }
 
-.barchart {
-  margin-top: 70px;
-  margin-bottom: 30px;
-  background: #eeeeee;
+.data-container {
+  display: flex;
+  flex-direction: row;
+  @include desktop-breakpoint {
+    flex-direction: column;
+  }
+}
+.charts-container {
+  &__barchart {
+    margin-top: 70px;
+    margin-bottom: 30px;
+    background: #eeeeee;
+  }
+  &__other {
+    display: flex;
+    justify-content: space-between;
+  }
 }
 
-.lineRadarChart {
+.cards {
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
+  margin: 70px 0 0 20px ;
+  @include desktop-breakpoint {
+    flex-direction: row;
+    margin: 30px 0 0 0px;
+  }
 }
+

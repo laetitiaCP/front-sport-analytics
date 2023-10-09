@@ -1,5 +1,6 @@
 import Header from "../../Components/Header/header";
 import NavBarAside from "../../Components/NavBarAside/navBarAside";
+import PageConstruction from "../../Components/pageConstruction/pageConstruction";
 
 function Communaute() {
     return (
@@ -7,9 +8,7 @@ function Communaute() {
             <Header />
             <main className="main">
                 <NavBarAside />
-                <section>
-                    En construction
-                </section>
+                <PageConstruction section='"Communauté"' />
             </main>
         </div>
     );

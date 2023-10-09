@@ -1,1 +1,17 @@
+/** VARIABLES **/
+
 $primaryColor: #FF0101;
+$colorBackGround: #eeeeee;
+
+/** MIXINS **/
+
+@mixin desktop-breakpoint {
+  @media screen and (max-width: 1330px) {
+    @content;
+  }
+}
+@mixin mobile-breakpoint {
+  @media screen and (max-width: 800px) {
+    @content;
+  }
+}

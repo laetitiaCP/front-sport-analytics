@@ -1,7 +1,32 @@
+@import "src/Style/variables";
+
 .card {
   display: flex;
+  width: 258px;
+  height: 124px;
+  background: $colorBackGround;
+  @include desktop-breakpoint {
+    width: 200px;
+  }
+  &__icon {
+    width: 60px;
+    height: 60px;
+    align-self: center;
+    padding: 20px;
+  }
   &__texts {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    &__number {
+      font-size: 20px;
+      font-weight: 700;
+      line-height: 24px;
+    }
+    &__calories {
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 24px;
+    }
   }
 }

@@ -1,6 +1,6 @@
 import {
     CartesianGrid,
-    LineChart, Tooltip, XAxis, YAxis, Line
+    LineChart, Tooltip, XAxis, YAxis, Line, ResponsiveContainer
 } from "recharts";
 import "./lineChartComponent.scss";
 import {useState} from "react";
@@ -26,43 +26,45 @@ function LineChartComponent(parData) {
 
     return (
         <div className="lineChart">
-            <LineChart
-                width={300}
-                height={263}
-                data={parData.data}
-                onMouseMove={onMouseMove}
-                onMouseOut={onMouseOut}
-            >
-                <defs>
-                    <linearGradient id="colorBackground" x1="0%" y1="0" x2="100%" y2="0" >
-                        <stop offset="0%" stopColor="rgba(255, 0, 0)" />
-                        <stop offset={`${perc-4}%`} stopColor="rgba(255, 0, 0)" />
-                        { mouseOn === false
-                            ? <stop offset={`${100}%`} stopColor="rgba(255, 0, 0)" />
-                            : <stop offset={`${100}%`} stopColor="rgba(112, 0, 0)" />
-                        }
-                    </linearGradient>
-                </defs>
-                <CartesianGrid
-                    vertical={false}
-                    horizontal={false}
-                    fill="url(#colorBackground)"
-                />
-                <svg className="lineChart__title">
-                    <text x="10" y="30" fill="white" opacity="70%" >Durée moyenne des</text>
-                    <text x="10" y="50" fill="white" opacity="70%" >sessions</text>
-                </svg>
-                <XAxis dataKey="day" tick={<CustomTick />} tickSize={0} axisLine={false} padding={{left:10, right:10}} />
-                <YAxis domain={["dataMin-25", "dataMax+15"]} hide={true}/>
-                <Tooltip content={<CustomTooltip payload={parData} />}/>
-                <Line
-                    type="natural"
-                    dataKey="sessionLength"
-                    stroke="white"
-                    strokeWidth={3}
-                    dot={false}
-                />
-            </LineChart>
+            <ResponsiveContainer>
+                <LineChart
+                    width={300}
+                    height={263}
+                    data={parData.data}
+                    onMouseMove={onMouseMove}
+                    onMouseOut={onMouseOut}
+                >
+                    <defs>
+                        <linearGradient id="colorBackground" x1="0%" y1="0" x2="100%" y2="0" >
+                            <stop offset="0%" stopColor="rgba(255, 0, 0)" />
+                            <stop offset={`${perc-4}%`} stopColor="rgba(255, 0, 0)" />
+                            { mouseOn === false
+                                ? <stop offset={`${100}%`} stopColor="rgba(255, 0, 0)" />
+                                : <stop offset={`${100}%`} stopColor="rgba(112, 0, 0)" />
+                            }
+                        </linearGradient>
+                    </defs>
+                    <CartesianGrid
+                        vertical={false}
+                        horizontal={false}
+                        fill="url(#colorBackground)"
+                    />
+                    <svg className="lineChart__title">
+                        <text x="10" y="30" fill="white" opacity="70%" >Durée moyenne des</text>
+                        <text x="10" y="50" fill="white" opacity="70%" >sessions</text>
+                    </svg>
+                    <XAxis dataKey="day" tick={<CustomTick />} tickSize={0} axisLine={false} padding={{left:10, right:10}} />
+                    <YAxis domain={["dataMin-25", "dataMax+15"]} hide={true}/>
+                    <Tooltip content={<CustomTooltip payload={parData} />}/>
+                    <Line
+                        type="natural"
+                        dataKey="sessionLength"
+                        stroke="white"
+                        strokeWidth={3}
+                        dot={false}
+                    />
+                </LineChart>
+            </ResponsiveContainer>
         </div>
     )
 }

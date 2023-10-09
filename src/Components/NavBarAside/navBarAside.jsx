@@ -6,7 +6,7 @@ import "./navBarAside.scss";
 
 function NavBarAside() {
     return (
-        <aside className="navBar">
+        <div className="navBar">
             <div className="navBar__logos">
                 <img src={icon1} alt="icone 1" />
                 <img src={icon2} alt="icone 2" />
@@ -14,7 +14,7 @@ function NavBarAside() {
                 <img src={icon4} alt="icone 4" />
             </div>
             <small className="navBar__text">Copyrigth, SportSee 2020</small>
-        </aside>
+        </div>
     )
 }
 

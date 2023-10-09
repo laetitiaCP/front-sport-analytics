@@ -31,7 +31,7 @@ function useFetch(url) {
             mounted = false;
         }
     }, [url]);
-    console.log(data)
+
     return { data, isLoading, error };
 }
 

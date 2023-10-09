@@ -1,6 +1,7 @@
 import Header from "../../Components/Header/header";
 import NavBarAside from "../../Components/NavBarAside/navBarAside";
 import "./reglages.scss";
+import PageConstruction from "../../Components/pageConstruction/pageConstruction";
 
 function Reglages() {
     return (
@@ -8,9 +9,7 @@ function Reglages() {
             <Header />
             <main className="main">
                 <NavBarAside />
-                <section>
-                    En construction
-                </section>
+                <PageConstruction section='"Réglagles"' />
             </main>
         </div>
     );

@@ -1,0 +1,15 @@
+.construct {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-right: auto;
+  margin-left: auto;
+  &__title {
+    font-size: 48px;
+  }
+  &__image {
+    align-self: center;
+    width: 200px;
+  }
+}
+
