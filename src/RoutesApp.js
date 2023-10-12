@@ -4,6 +4,7 @@ import Home from "./Pages/Home/home";
 import Profil from "./Pages/Profil/profil";
 import Reglages from "./Pages/Reglages/reglages";
 import Communaute from "./Pages/Communaute/communaute";
+import Erreur404 from "./Pages/Page404/Erreur404";
 
 function RoutesApp() {
   return (
@@ -12,6 +13,7 @@ function RoutesApp() {
         <Route path="/:id/profil" element={<Profil />} />
         <Route path="/reglages" element={<Reglages />} />
         <Route path="/communaute" element={<Communaute />} />
+        <Route path="/*" element={<Erreur404 />} />
     </Routes>
   );
 }

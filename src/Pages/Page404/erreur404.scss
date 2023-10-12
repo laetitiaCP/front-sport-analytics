@@ -1,0 +1,18 @@
+@import "src/Style/variables";
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  & img {
+    width: 200px;
+    align-self: center;
+  }
+  & span {
+    font-size: 48px;
+    font-weight: 700;
+    color: $primaryColor;
+  }
+}
