@@ -2,9 +2,9 @@ import {RadarChart, PolarGrid, PolarAngleAxis, Radar, ResponsiveContainer} from 
 import "./radarCharComponent.scss";
 
 /**
- * component qui renvoie un RadarChart
- * @param parData
- * @returns {JSX.Element}
+ * RadarChart component
+ * @param {Array<Object>} parData data for radarChart component
+ * @returns {JSX.Element} return radarchart component
  * @constructor
  */
 function RadarChartComponent(parData) {

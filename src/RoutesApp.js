@@ -6,6 +6,11 @@ import Reglages from "./Pages/Reglages/reglages";
 import Communaute from "./Pages/Communaute/communaute";
 import Erreur404 from "./Pages/Page404/Erreur404";
 
+/**
+ * Routes to access application
+ * @returns {JSX.Element}
+ * @constructor
+ */
 function RoutesApp() {
   return (
     <Routes>

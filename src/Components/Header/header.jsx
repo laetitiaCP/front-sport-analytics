@@ -1,6 +1,12 @@
 import logo from "../../Images/logo_SportSee.svg";
 import {Link} from "react-router-dom";
 import "./header.scss";
+
+/**
+ * Header component with navigation links
+ * @returns {JSX.Element} return <div> with the Header
+ * @constructor
+ */
 function Header() {
     return (
         <div className="header">

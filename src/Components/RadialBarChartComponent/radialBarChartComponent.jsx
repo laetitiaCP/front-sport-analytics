@@ -1,6 +1,12 @@
 import {PolarAngleAxis, RadialBar, RadialBarChart, ResponsiveContainer} from "recharts";
 import "./radialBarChartComponent.scss";
 
+/**
+ * RadialBarChart component
+ * @param {Array<Object>} data data for the radialbarchart component
+ * @returns {JSX.Element} return radialbarchart component
+ * @constructor
+ */
 function RadialBarChartComponent({data}) {
 
     let score

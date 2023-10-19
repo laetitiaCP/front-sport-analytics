@@ -4,9 +4,21 @@ import {
 } from "recharts";
 import "./lineChartComponent.scss";
 import {useState} from "react";
+
+/**
+ * LineChart component
+ * @param {Array<Object>} parData data for lineChart
+ * @returns {JSX.Element} return <div> with LineChart
+ * @constructor
+ */
 function LineChartComponent(parData) {
     const [perc, setPerc] = useState();
     const [mouseOn, setMouseOn] = useState(false);
+
+    /**
+     * customized event handler of mousemove in this chart.
+     * @param hoveredData data event
+     */
     const onMouseMove = (hoveredData) => {
 
         if (hoveredData && hoveredData.activePayload) {
@@ -19,6 +31,9 @@ function LineChartComponent(parData) {
         }
     };
 
+    /**
+     * customized event handler of mouseleave in this chart.
+     */
     const onMouseOut = () => {
         setMouseOn(false);
         setPerc(0);
@@ -71,6 +86,12 @@ function LineChartComponent(parData) {
 
 export default LineChartComponent;
 
+/**
+ * Customize tooltip
+ * @param {Array<Object>} payload data
+ * @returns {JSX.Element} return <div> with custom tooltip
+ * @constructor
+ */
 const CustomTooltip = ({payload}) => {
     if (payload[0] !== undefined) {
         const duration = payload[0].payload.sessionLength + "min";
@@ -83,6 +104,14 @@ const CustomTooltip = ({payload}) => {
     }
 }
 
+/**
+ * Customize tick
+ * @param {int} x placement tick XAxis
+ * @param {int} y placement tick YAxis
+ * @param {Array<Object>} payload
+ * @returns {JSX.Element} return custom tick
+ * @constructor
+ */
 const CustomTick = ({x, y, payload}) => {
     return (
         <g className="custom-tick" transform={`translate(${x},${y})`}>

@@ -10,12 +10,18 @@ import {
 } from "recharts";
 
 /**
- * Component BarChart
- * @param data
- * @returns {JSX.Element}
+ * BarChart component
+ * @param  {Array<objects>} data
+ * @returns {JSX.Element} return barchart component
  * @constructor
  */
 function BarCharts({data}) {
+    /**
+     * Customize the name of the barchart bars
+     * @param {string} name name for barchart bar legend
+     * @returns {JSX.Element} return <span> with name
+     * @constructor
+     */
     const CustomName = ({name}) => {
         return <span className="custom-name">{name}</span>
     }
@@ -79,8 +85,8 @@ export default BarCharts;
 
 /**
  * return a custom tooltip
- * @param payload
- * @returns {JSX.Element}
+ * @param {Array<Object>} payload ata to get the number of calories and kilograms
+ * @returns {JSX.Element} return <div> with custom tooltip
  * @constructor
  */
 const CustomTooltip = ({payload}) => {

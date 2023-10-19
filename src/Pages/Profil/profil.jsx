@@ -14,6 +14,12 @@ import {
     formatDataPerformance,
     formatDataUser
 } from "../../webService/formatData";
+
+/**
+ * Profile page
+ * @returns {JSX.Element} return profile page
+ * @constructor
+ */
 function Profil() {
     const id = useParams("id");
     let firstName = "";

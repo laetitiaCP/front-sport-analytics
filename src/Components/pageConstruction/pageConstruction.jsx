@@ -1,5 +1,12 @@
 import handyman from "../../Images/handyman.jpg";
 import "./pageConstruction.scss";
+
+/**
+ * Page in construction component
+ * @param {string} section name of the page under construction
+ * @returns {JSX.Element} return <div> with title and image
+ * @constructor
+ */
 function PageConstruction({section}) {
     return (
         <div className="construct">

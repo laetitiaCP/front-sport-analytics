@@ -7,7 +7,11 @@ import {Link} from "react-router-dom";
 
 import "./home.scss";
 
-
+/**
+ * Home page
+ * @returns {JSX.Element} return home page
+ * @constructor
+ */
 export default function Home () {
     return (
         <div>

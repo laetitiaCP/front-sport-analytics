@@ -1,7 +1,7 @@
 /**
- * Formate les données pour qu'elles soient utilisables en l'état pour le BarChart
- * @param parData
- * @returns {*[]}
+ * Formats data to use it in the BarChart
+ * @param {Array<Object>} parData data must be formatted
+ * @returns {Array<Object>} return data formatted for use in barchart
  */
 export function formatDataActivity(parData) {
     let locReturnedData = [];
@@ -14,9 +14,9 @@ export function formatDataActivity(parData) {
 }
 
 /**
- * Formate les données pour qu'elles soient utilisables pour le lineChart
- * @param parData
- * @returns {*[]}
+ * Formats data to use it in the LineChart
+ * @param {Array<Object>} parData data must be formatted
+ * @returns {Array<Object>} return data formatted for use in linechart
  */
 export function formatDataAverageSession(parData) {
     let locReturnedData = [];
@@ -34,6 +34,11 @@ export function formatDataAverageSession(parData) {
     return locReturnedData;
 }
 
+/**
+ * Formats data to use it in the RadarChart component
+ * @param {Array<Object>} parData data must be formatted
+ * @returns {Array<Object>} return data formatted for use in radarchart
+ */
 export function formatDataPerformance(parData) {
     let locReturnedData = [];
     let mapKind = new Map([
@@ -50,6 +55,11 @@ export function formatDataPerformance(parData) {
     return locReturnedData;
 }
 
+/**
+ * Formats data to use it in the Cards
+ * @param  {Array<Object>} parData data must be formatted
+ * @returns {Array<Object>} return data formatted for use in card
+ */
 export function formatDataUser(parData) {
     let locReturnedData = [];
     if (parData.data) {

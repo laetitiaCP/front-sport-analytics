@@ -4,6 +4,13 @@ import iconGlucides from "../../Images/icon-glucid.png";
 import iconLipides from "../../Images/icon-fat.jpg";
 import "./card.scss";
 
+/**
+ * Card component
+ * @param {string} type type of intake (Calories, Proteines, Glucides, Lipides)
+ * @param {int} number number type of intake
+ * @returns {JSX.Element} return card component
+ * @constructor
+ */
 function Card({type, number}) {
     let svg = "";
 

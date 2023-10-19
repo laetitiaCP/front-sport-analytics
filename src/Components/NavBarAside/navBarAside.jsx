@@ -4,6 +4,11 @@ import icon3 from "../../Images/icon3.svg";
 import icon4 from "../../Images/icon4.svg";
 import "./navBarAside.scss";
 
+/**
+ * Side navigation bar component
+ * @returns {JSX.Element} return side bar component
+ * @constructor
+ */
 function NavBarAside() {
     return (
         <div className="navBar">
