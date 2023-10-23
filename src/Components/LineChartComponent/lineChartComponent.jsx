@@ -52,10 +52,12 @@ function LineChartComponent(parData) {
                     <defs>
                         <linearGradient id="colorBackground" x1="0%" y1="0" x2="100%" y2="0" >
                             <stop offset="0%" stopColor="rgba(255, 0, 0)" />
-                            <stop offset={`${perc-4}%`} stopColor="rgba(255, 0, 0)" />
+                            { perc !== undefined &&
+                                <stop offset={`${perc-4}%`} stopColor="rgba(255, 0, 0)" />
+                            }
                             { mouseOn === false
-                                ? <stop offset={`${100}%`} stopColor="rgba(255, 0, 0)" />
-                                : <stop offset={`${100}%`} stopColor="rgba(112, 0, 0)" />
+                                ? <stop offset={"100%"} stopColor="rgba(255, 0, 0)" />
+                                : <stop offset={"100%"} stopColor="rgba(112, 0, 0)" />
                             }
                         </linearGradient>
                     </defs>

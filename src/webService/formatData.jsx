@@ -5,8 +5,8 @@
  */
 export function formatDataActivity(parData) {
     let locReturnedData = [];
-    if (parData.data) {
-        (parData.data.sessions).forEach( (session, index) => {
+    if (parData) {
+        (parData.sessions).forEach( (session, index) => {
             locReturnedData.push({"day": index + 1, "kilogram":session.kilogram, "calories":session.calories})
         })
     }
@@ -23,8 +23,8 @@ export function formatDataAverageSession(parData) {
     let mapWeek = new Map([
         [1,"L"], [2,"M"], [3,"M"], [4,"J"], [5,"V"], [6,"S"], [7,"D"]
     ]);
-    if (parData.data) {
-        (parData.data.sessions).forEach( (session) => {
+    if (parData) {
+        (parData.sessions).forEach( (session) => {
             locReturnedData.push({
                 "day": mapWeek.get(session.day),
                 "sessionLength": session.sessionLength,
@@ -44,8 +44,8 @@ export function formatDataPerformance(parData) {
     let mapKind = new Map([
         [1,"Cardio"], [2,"Energie"], [3,"Endurance"], [4,"Force"], [5,"Vitesse"], [6,"Intensité"]
     ]);
-    if (parData.data) {
-        (parData.data.data).forEach( (perf) => {
+    if (parData) {
+        (parData.data).forEach( (perf) => {
             locReturnedData.push({
                 "kind": mapKind.get(perf.kind),
                 "value": perf.value,
@@ -62,23 +62,23 @@ export function formatDataPerformance(parData) {
  */
 export function formatDataUser(parData) {
     let locReturnedData = [];
-    if (parData.data) {
-        let calorie = new Intl.NumberFormat("en-IN").format(parData.data.keyData.calorieCount);
+    if (parData) {
+        let calorie = new Intl.NumberFormat("en-IN").format(parData.keyData.calorieCount);
         locReturnedData= [
             {
-            "id": parData.data.id,
+            "id": parData.id,
             "userInfos": {
-                "firstName": parData.data.userInfos.firstName,
-                "lastName": parData.data.userInfos.lastName,
-                "age": parData.data.userInfos.age
+                "firstName": parData.userInfos.firstName,
+                "lastName": parData.userInfos.lastName,
+                "age": parData.userInfos.age
             },
-            "score": parData.data.score * 100 || parData.data.todayScore * 100,
+            "score": parData.score * 100 || parData.todayScore * 100,
 
             "keyData": {
                 "calorieCount": calorie,
-                "proteinCount": parData.data.keyData.proteinCount,
-                "carbohydrateCount": parData.data.keyData.carbohydrateCount,
-                "lipidCount": parData.data.keyData.lipidCount
+                "proteinCount": parData.keyData.proteinCount,
+                "carbohydrateCount": parData.keyData.carbohydrateCount,
+                "lipidCount": parData.keyData.lipidCount
             }
         }
         ];

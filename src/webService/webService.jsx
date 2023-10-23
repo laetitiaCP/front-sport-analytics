@@ -1,4 +1,8 @@
 import useFetch from "../Hooks/useFetch";
+import dataActivity from "../Data/dataActivity.json";
+import dataAverageSession from "../Data/dataAverageSessions.json";
+import dataPerformance from "../Data/dataPerformance.json";
+import dataUsers from "../Data/dataUsers.json";
 
 /**
  * API call to get data
@@ -16,6 +20,42 @@ export function GetData(parId, parFunctionToFormat, parUrl) {
         console.log(error)
         return [];
     }
-    return !isLoading && parFunctionToFormat(data);
+    return !isLoading && parFunctionToFormat(data.data);
+}
+
+export function getDataFromMock(parId, parFunctionToFormat, parType) {
+
+    switch (parType) {
+        case "Activity":
+            if (parId === "12") {
+                return parFunctionToFormat(dataActivity[0]);
+            } else {
+                return parFunctionToFormat(dataActivity[1]);
+            }
+
+        case "AverageSession":
+            if (parId === "12") {
+                return parFunctionToFormat(dataAverageSession[0]);
+            } else {
+                return parFunctionToFormat(dataAverageSession[1]);
+            }
+
+
+        case "Performance":
+            if (parId === '12') {
+                return parFunctionToFormat(dataPerformance[0]);
+            } else {
+                return parFunctionToFormat(dataPerformance[1]);
+            }
+
+        case "User":
+            if (parId === "12") {
+                return parFunctionToFormat(dataUsers[0]);
+            } else {
+                return parFunctionToFormat(dataUsers[1]);
+            }
+        default:
+            return;
+    }
 }
 
